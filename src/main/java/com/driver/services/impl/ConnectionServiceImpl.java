@@ -29,7 +29,7 @@ public class ConnectionServiceImpl implements ConnectionService {
             Country country=null;
             for(ServiceProvider serviceProvider1: user.getServiceProviderList()){
                 for(Country country1:serviceProvider1.getCountryList()) {
-                    if (countryName.equals(country1.getCountryName().toString()) && country1.getId() < sip) {
+                    if (countryName.equals(country1.getCountryName().toString()) && serviceProvider1.getId() < sip) {
                         sip = serviceProvider1.getId();
                         serviceProvider = serviceProvider1;
                         country = country1;
