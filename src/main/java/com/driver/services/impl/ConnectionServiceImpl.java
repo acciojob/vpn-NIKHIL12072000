@@ -80,7 +80,7 @@ public class ConnectionServiceImpl implements ConnectionService {
                 Country country=null;
                 for(ServiceProvider serviceProvider1: sender.getServiceProviderList()){
                     for(Country country1:serviceProvider1.getCountryList()) {
-                        if (receiver_country.equals(country1.getCountryName().toString()) && country1.getId() < sip) {
+                        if (receiver_country.equals(country1.getCountryName().toString()) && serviceProvider1.getId() < sip) {
                             sip = serviceProvider1.getId();
                             serviceProvider = serviceProvider1;
                             country = country1;
