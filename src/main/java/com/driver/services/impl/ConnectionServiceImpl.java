@@ -28,11 +28,13 @@ public class ConnectionServiceImpl implements ConnectionService {
             ServiceProvider serviceProvider=null;
             Country country=null;
             for(ServiceProvider serviceProvider1: user.getServiceProviderList()){
-                for(Country country1:serviceProvider1.getCountryList()) {
-                    if (countryName.equals(country1.getCountryName().toString()) && serviceProvider1.getId() < sip) {
-                        sip = serviceProvider1.getId();
-                        serviceProvider = serviceProvider1;
-                        country = country1;
+                if(serviceProvider1.getId() < sip){
+                    for(Country country1:serviceProvider1.getCountryList()) {
+                        if (countryName.equals(country1.getCountryName().toString())) {
+                            sip = serviceProvider1.getId();
+                            serviceProvider = serviceProvider1;
+                            country = country1;
+                        }
                     }
                 }
             }
@@ -79,11 +81,13 @@ public class ConnectionServiceImpl implements ConnectionService {
                 ServiceProvider serviceProvider=null;
                 Country country=null;
                 for(ServiceProvider serviceProvider1: sender.getServiceProviderList()){
-                    for(Country country1:serviceProvider1.getCountryList()) {
-                        if (receiver_country.equals(country1.getCountryName().toString()) && serviceProvider1.getId() < sip) {
-                            sip = serviceProvider1.getId();
-                            serviceProvider = serviceProvider1;
-                            country = country1;
+                    if(serviceProvider1.getId() < sip){
+                        for(Country country1:serviceProvider1.getCountryList()) {
+                            if (receiver_country.equals(country1.getCountryName().toString())) {
+                                sip = serviceProvider1.getId();
+                                serviceProvider = serviceProvider1;
+                                country = country1;
+                            }
                         }
                     }
                 }
