@@ -31,7 +31,7 @@ public class ConnectionServiceImpl implements ConnectionService {
                 if(serviceProvider1.getId() < sip){
                     for(Country country1:serviceProvider1.getCountryList()) {
                         System.out.println(countryName+" "+country1.getCountryName().toString());
-                        if (countryName.equals(country1.getCountryName().toString())) {
+                        if (countryName.equalsIgnoreCase(country1.getCountryName().toString())) {
                             sip = serviceProvider1.getId();
                             serviceProvider = serviceProvider1;
                             country = country1;
@@ -85,7 +85,7 @@ public class ConnectionServiceImpl implements ConnectionService {
                     if(serviceProvider1.getId() < sip){
                         for(Country country1:serviceProvider1.getCountryList()) {
                             System.out.println(receiver_country+" "+country1.getCountryName().toString());
-                            if (receiver_country.equals(country1.getCountryName().toString())) {
+                            if (receiver_country.equalsIgnoreCase(country1.getCountryName().toString())) {
                                 sip = serviceProvider1.getId();
                                 serviceProvider = serviceProvider1;
                                 country = country1;
